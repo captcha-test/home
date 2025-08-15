@@ -1,72 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>CAPTCHA Test Page</title>
-
-  <!-- Google reCAPTCHA v2 -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-  <!-- Cloudflare Turnstile -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
-  <!-- hCaptcha -->
-  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 30px; }
-    .captcha-box { margin: 40px auto; max-width: 600px; }
-    h1 { margin-bottom: 10px; }
-    h2 { margin-top: 40px; }
-    .token-box { font-family: monospace; background: #f5f5f5; padding: 10px; margin-top: 10px; display: inline-block; }
-  </style>
+<title>Multi CAPTCHA Demo</title>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    text-align: center;
+    padding: 30px;
+  }
+  h1 {
+    color: #333;
+  }
+  .captcha-box {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 20px auto;
+    width: 350px;
+  }
+</style>
+<!-- Google reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!-- hCaptcha -->
+<script src="https://hcaptcha.com/1/api.js" async defer></script>
+<!-- Cloudflare Turnstile -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
-  <h1>🔐 CAPTCHA Test Playground</h1>
-  <p>Testing ReCAPTCHA v2 (Test Key), Cloudflare Turnstile, and hCaptcha</p>
+<h1>CAPTCHA Examples</h1>
 
-  <!-- Google reCAPTCHA (Test Key) -->
-  <div class="captcha-box">
-    <h2>1️⃣ Google reCAPTCHA v2 (Test Key)</h2>
-    <div class="g-recaptcha" 
-         data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-         data-callback="recaptchaCallback"></div>
-    <div id="recaptcha-token" class="token-box"></div>
-  </div>
+<div class="captcha-box">
+  <h3>Google reCAPTCHA</h3>
+  <div class="g-recaptcha" data-sitekey="6LfqzaYrAAAAABMDCxeJn3GBtGkdXVTgZds1tpMh"></div>
+</div>
 
-  <!-- Cloudflare Turnstile -->
-  <div class="captcha-box">
-    <h2>2️⃣ Cloudflare Turnstile</h2>
-    <div class="cf-turnstile"
-         data-sitekey="0x4AAAAAABr6BDJPfyqFAlkJ"
-         data-callback="turnstileCallback"></div>
-    <div id="turnstile-token" class="token-box"></div>
-  </div>
+<div class="captcha-box">
+  <h3>hCaptcha</h3>
+  <div class="h-captcha" data-sitekey="a11e692c-f250-48d2-9f9a-fce252ac9b6e"></div>
+</div>
 
-  <!-- hCaptcha -->
-  <div class="captcha-box">
-    <h2>3️⃣ hCaptcha</h2>
-    <div class="h-captcha"
-         data-sitekey="fd603668-fd5c-48b2-a8ee-9a60850403dc"
-         data-callback="hcaptchaCallback"></div>
-    <div id="hcaptcha-token" class="token-box"></div>
-  </div>
-
-  <script>
-    function recaptchaCallback(token) {
-      console.log("✅ reCAPTCHA v2 token:", token);
-      document.getElementById("recaptcha-token").innerText = token;
-    }
-    function turnstileCallback(token) {
-      console.log("✅ Cloudflare Turnstile token:", token);
-      document.getElementById("turnstile-token").innerText = token;
-    }
-    function hcaptchaCallback(token) {
-      console.log("✅ hCaptcha token:", token);
-      document.getElementById("hcaptcha-token").innerText = token;
-    }
-  </script>
+<div class="captcha-box">
+  <h3>Cloudflare Turnstile</h3>
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAABr6BDJPfyqFAlkJ"></div>
+</div>
 
 </body>
 </html>

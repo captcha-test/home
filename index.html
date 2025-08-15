@@ -1,52 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Multi CAPTCHA Demo</title>
-<meta charset="UTF-8">
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-    text-align: center;
-    padding: 30px;
-  }
-  h1 {
-    color: #333;
-  }
-  .captcha-box {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    margin: 20px auto;
-    width: 350px;
-  }
-</style>
-<!-- Google reCAPTCHA -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<!-- hCaptcha -->
-<script src="https://hcaptcha.com/1/api.js" async defer></script>
-<!-- Cloudflare Turnstile -->
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <meta charset="UTF-8">
+  <title>Captcha Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f7f7f7; text-align: center; padding: 50px; }
+    h1 { color: #333; }
+    .card-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
+    .card {
+      background: white; padding: 20px 30px; border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 250px; text-align: center;
+    }
+    a {
+      display: inline-block; margin-top: 15px; text-decoration: none;
+      background: #4a90e2; color: white; padding: 10px 20px; border-radius: 5px;
+      transition: background 0.2s;
+    }
+    a:hover { background: #357ab7; }
+  </style>
 </head>
 <body>
-
-<h1>CAPTCHA Examples</h1>
-
-<div class="captcha-box">
-  <h3>Google reCAPTCHA</h3>
-  <div class="g-recaptcha" data-sitekey="6LfqzaYrAAAAABMDCxeJn3GBtGkdXVTgZds1tpMh"></div>
-</div>
-
-<div class="captcha-box">
-  <h3>hCaptcha</h3>
-  <div class="h-captcha" data-sitekey="a11e692c-f250-48d2-9f9a-fce252ac9b6e"></div>
-</div>
-
-<div class="captcha-box">
-  <h3>Cloudflare Turnstile</h3>
-  <div class="cf-turnstile" data-sitekey="0x4AAAAAABr6BDJPfyqFAlkJ"></div>
-</div>
-
+  <h1>Captcha Test Hub</h1>
+  <p>Choose a captcha service to test:</p>
+  <div class="card-container">
+    <div class="card">
+      <h2>Google reCAPTCHA</h2>
+      <a href="recaptchabygoogle.html">Try Now</a>
+    </div>
+    <div class="card">
+      <h2>Cloudflare Turnstile</h2>
+      <a href="turnstile.html">Try Now</a>
+    </div>
+    <div class="card">
+      <h2>hCaptcha</h2>
+      <a href="hcaptcha.html">Try Now</a>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CAPTCHA Test Page</title>
+
+  <!-- Google reCAPTCHA v2 -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <!-- hCaptcha -->
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 30px; }
+    .captcha-box { margin: 40px auto; max-width: 600px; }
+    h1 { margin-bottom: 10px; }
+    h2 { margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+  <h1>🔐 CAPTCHA Test Playground</h1>
+  <p>Testing ReCAPTCHA v2, Cloudflare Turnstile, and hCaptcha on GitHub Pages</p>
+
+  <!-- Google reCAPTCHA -->
+  <div class="captcha-box">
+    <h2>1️⃣ Google reCAPTCHA v2</h2>
+    <div class="g-recaptcha" 
+         data-sitekey="6LfqzaYrAAAAABMDCxeJn3GBtGkdXVTgZd-s1tpMh"
+         data-callback="recaptchaCallback"></div>
+  </div>
+
+  <!-- Cloudflare Turnstile -->
+  <div class="captcha-box">
+    <h2>2️⃣ Cloudflare Turnstile</h2>
+    <div class="cf-turnstile"
+         data-sitekey="0x4AAAAAABr5kQHzz80wlYLu"
+         data-callback="turnstileCallback"></div>
+  </div>
+
+  <!-- hCaptcha -->
+  <div class="captcha-box">
+    <h2>3️⃣ hCaptcha</h2>
+    <div class="h-captcha"
+         data-sitekey="fd603668-fd5c-48b2-a8ee-9a60850403dc"
+         data-callback="hcaptchaCallback"></div>
+  </div>
+
+  <script>
+    function recaptchaCallback(token) {
+      console.log("✅ reCAPTCHA v2 token:", token);
+    }
+    function turnstileCallback(token) {
+      console.log("✅ Cloudflare Turnstile token:", token);
+    }
+    function hcaptchaCallback(token) {
+      console.log("✅ hCaptcha token:", token);
+    }
+  </script>
+
+</body>
+</html>

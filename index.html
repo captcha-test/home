@@ -18,19 +18,21 @@
     .captcha-box { margin: 40px auto; max-width: 600px; }
     h1 { margin-bottom: 10px; }
     h2 { margin-top: 40px; }
+    .token-box { font-family: monospace; background: #f5f5f5; padding: 10px; margin-top: 10px; display: inline-block; }
   </style>
 </head>
 <body>
 
   <h1>🔐 CAPTCHA Test Playground</h1>
-  <p>Testing ReCAPTCHA v2, Cloudflare Turnstile, and hCaptcha on GitHub Pages</p>
+  <p>Testing ReCAPTCHA v2 (Test Key), Cloudflare Turnstile, and hCaptcha</p>
 
-  <!-- Google reCAPTCHA -->
+  <!-- Google reCAPTCHA (Test Key) -->
   <div class="captcha-box">
-    <h2>1️⃣ Google reCAPTCHA v2</h2>
+    <h2>1️⃣ Google reCAPTCHA v2 (Test Key)</h2>
     <div class="g-recaptcha" 
-         data-sitekey="6LfqzaYrAAAAABMDCxeJn3GBtGkdXVTgZds1tpMh"
+         data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
          data-callback="recaptchaCallback"></div>
+    <div id="recaptcha-token" class="token-box"></div>
   </div>
 
   <!-- Cloudflare Turnstile -->
@@ -39,6 +41,7 @@
     <div class="cf-turnstile"
          data-sitekey="0x4AAAAAABr6BDJPfyqFAlkJ"
          data-callback="turnstileCallback"></div>
+    <div id="turnstile-token" class="token-box"></div>
   </div>
 
   <!-- hCaptcha -->
@@ -47,17 +50,21 @@
     <div class="h-captcha"
          data-sitekey="fd603668-fd5c-48b2-a8ee-9a60850403dc"
          data-callback="hcaptchaCallback"></div>
+    <div id="hcaptcha-token" class="token-box"></div>
   </div>
 
   <script>
     function recaptchaCallback(token) {
       console.log("✅ reCAPTCHA v2 token:", token);
+      document.getElementById("recaptcha-token").innerText = token;
     }
     function turnstileCallback(token) {
       console.log("✅ Cloudflare Turnstile token:", token);
+      document.getElementById("turnstile-token").innerText = token;
     }
     function hcaptchaCallback(token) {
       console.log("✅ hCaptcha token:", token);
+      document.getElementById("hcaptcha-token").innerText = token;
     }
   </script>
 
